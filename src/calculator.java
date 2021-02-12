@@ -25,6 +25,7 @@ public class calculator {
                      System.out.println("quotient is " + a/b + " and remainder is " + a%b);
                      break;
              }
+             System.out.print("new line");
             System.out.println("Enter operation");
             operation = input.next();
             System.out.println("operation1 is: " + operation);
