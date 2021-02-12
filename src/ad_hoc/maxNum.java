@@ -35,8 +35,8 @@ public class maxNum {
         }
         return currentMax;
     }
-//    static int recMax(ArrayList<Integer> a,  ){
-//
-//    }
+    static int recMax(ArrayList<Integer> a  ){
+        return 0;
+    }
 
 }
