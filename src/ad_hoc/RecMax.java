@@ -8,7 +8,7 @@ public class RecMax {
     public static void main(String[] args) {
         ArrayList<Integer> a = new ArrayList<>(Arrays.asList(500,1, 3, 6, 8, 99,89,104));
         int current_max = Integer.MIN_VALUE;
-        System.out.print(recurMax(a,current_max,0));
+        System.out.println(recurMax(a,current_max,0));
         System.out.print(a.size());
     }
     static int recurMax(ArrayList<Integer> a,int current_max, int i) {
