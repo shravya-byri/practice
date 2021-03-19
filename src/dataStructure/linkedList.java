@@ -12,10 +12,12 @@ public class linkedList {
     }
     static void printLL(Node head) {
         Node current = head;
+        System.out.print("list is:  ");
         while(current != null){
-            System.out.println(current.data);
+            System.out.print(current.data + " ");
             current = current.next;
         }
+        System.out.println();
     }
 //     static Node addNode(int item) {
 //        return new Node(item, null);
@@ -47,9 +49,23 @@ public class linkedList {
         }
            return count;
     }
-    public static Node addNodeAtIndex(int index, int item){
-
-        return null;
+    public static Node addNodeAtIndex(Node head, int index, int item){
+        int counter = 0;
+        Node current = head;
+        Node current1 = head;
+        if (head == null) {
+            if (index == 0) {
+                return new Node(item, null);
+            }
+            System.out.println("No Linked list exists");
+        }
+        while(current != null && counter < (index-1)){
+            current = current.next;
+            current1 = current1.next;
+            counter++;
+        }
+        current.next = new Node(item, current1.next);
+        return head;
     }
     public static void main(String[] args) {
 //        Node k = new Node(1, null);
@@ -64,6 +80,8 @@ public class linkedList {
         Node h = newLL(4);
         addNode( h,5);
         addNode(h,6);
+//        printLL(h);
+        addNodeAtIndex(h,2, 88);
         printLL(h);
     }
 }
