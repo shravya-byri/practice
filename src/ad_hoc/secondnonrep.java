@@ -5,9 +5,8 @@ import java.util.Arrays;
 
 public class secondnonrep {
     public static void main(String[] args) {
-
 //        ArrayList<String> sri = new ArrayList<>(Arrays.asList("aaaabbcdffhhh"));
-        System.out.println(nonRep("aaaabbcdffhhh"));
+        System.out.println(nonRep("ahhihhm"));
 
     }
 
@@ -19,13 +18,17 @@ public class secondnonrep {
             if (sri.charAt(i) == sri.charAt(j)) {
                 c++;
             }
+            //if(j == sri.length()-1 && i < j) return sri.charAt(j);
             else {
                 if (c == 1) {
                     if (counter == 1)  return sri.charAt(i);
                     else counter++;
                 }
-                   i = j;
-                   c = 1;
+                  if(j == sri.length()-1 && i < j) return sri.charAt(j);
+                   else {
+                       i = j;
+                       c = 1;
+                   }
                 }
         }
             return ' ';

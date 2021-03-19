@@ -10,11 +10,11 @@ public class uniqueCharsInString {
     }
     static boolean isUnique(String str) {
         HashMap<Character, Integer> counters = new HashMap<>();
-        System.out.println(counters);
+        //System.out.println(counters);
         for (int i = 0; i < str.length(); i++) {
             Character currentChar = str.charAt(i);
-            System.out.println(currentChar);
-            //System.out.println(counters);
+            //System.out.println(currentChar);
+            System.out.println(counters);
             if (counters.get(currentChar) == null) {
                 counters.put(currentChar, 1);
             } else {
