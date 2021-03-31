@@ -19,9 +19,15 @@ public class linkedList {
         }
         System.out.println();
     }
-//     static Node addNode(int item) {
-//        return new Node(item, null);
-//    }
+
+    static void recPrintLL(Node current){
+        if(current != null){
+            System.out.println(current.data);
+            recPrintLL(current.next);
+        }
+
+    }
+
     public static Node newLL(int item) {
         return new Node(item, null);
     }
@@ -82,6 +88,7 @@ public class linkedList {
         addNode(h,6);
 //        printLL(h);
         addNodeAtIndex(h,2, 88);
-        printLL(h);
+       // printLL(h);
+        recPrintLL(h);
     }
 }
