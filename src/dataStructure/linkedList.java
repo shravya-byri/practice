@@ -29,6 +29,7 @@ public class linkedList {
     }
 
     public static Node newLL(int item) {
+
         return new Node(item, null);
     }
     public static void addNode(Node head, int item) {
