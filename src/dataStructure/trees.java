@@ -1,5 +1,9 @@
 package dataStructure;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class trees {
     public static class Node {
         public Node(int n, Node l, Node r){
@@ -14,8 +18,8 @@ public class trees {
     static void recPrintTree(Node n){
             Node current = n;
         if (current != null){
-            System.out.print(current.data+ " ");
             recPrintTree(current.left);
+            System.out.print(current.data+ " ");
             recPrintTree((current.right));
         }
 
@@ -25,14 +29,26 @@ public class trees {
     public static Node newLeaf(int n) {
         return new Node(n, null, null);
     }
+
+    public static Node insertBST(Node current, int data){
+        if(current == null){
+            return new Node(data, null,null);
+        }
+        else if(current.data > data){
+             current.left = insertBST(current.left, data);
+        }
+        else
+            current.right = insertBST(current.right,data);
+        return current;
+
+    }
     public static void main(String[] args) {
-        Node root = newLeaf(1);
-        root.left = newLeaf(2);
-        root.right = newLeaf(3);
-        root.left.left = newLeaf(4);
+        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(3, 1, 5, 4));
+        Node root = newLeaf(a.get(0));
+        for (int i = 1; i < a.size(); i++) {
+            insertBST(root, a.get(i));
+        }
         recPrintTree(root);
-
-
 
     }
 }
