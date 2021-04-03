@@ -66,8 +66,8 @@ public class trees {
         for (int i = 1; i < a.size(); i++) {
             insertBST(root, a.get(i));
         }
-        levelOrder(root);
-//        recPrintTree(root);
+       // levelOrder(root);
+         recPrintTree(root);
 
     }
 }
