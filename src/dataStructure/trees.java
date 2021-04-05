@@ -60,14 +60,30 @@ public class trees {
 
 
     }
+    public static Node search(int e, Node current){
+        if( current == null){
+            System.out.print("tree doesn't exist");
+            return null;
+        } else if (e == current.data){
+          //  System.out.print(current.data);
+            return current;
+        } else if(e > current.data){
+            return search(e,current.right);
+        } else {
+            return search(e,current.left);
+        }
+    }
     public static void main(String[] args) {
         ArrayList<Integer> a = new ArrayList<>(Arrays.asList(3, 1, 5, 4));
         Node root = newLeaf(a.get(0));
         for (int i = 1; i < a.size(); i++) {
             insertBST(root, a.get(i));
         }
-       // levelOrder(root);
-         recPrintTree(root);
+        // levelOrder(root);
+       // System.out.println();
+        // recPrintTree(root);
+        Node result = search(3,root);
+        System.out.println(result.data);
 
     }
 }
