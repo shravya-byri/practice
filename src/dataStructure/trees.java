@@ -73,6 +73,15 @@ public class trees {
             return search(e,current.left);
         }
     }
+    public static Node delete(int e, Node current){
+       Node m =  search( e, current);
+        if(m.left == null && m.right == null){
+            return null;
+        }
+        levelOrder(current);
+        return current;
+
+    }
     public static void main(String[] args) {
         ArrayList<Integer> a = new ArrayList<>(Arrays.asList(3, 1, 5, 4));
         Node root = newLeaf(a.get(0));
@@ -82,8 +91,8 @@ public class trees {
         // levelOrder(root);
        // System.out.println();
         // recPrintTree(root);
-        Node result = search(3,root);
-        System.out.println(result.data);
+        Node result = delete(3,root);
+        //System.out.println(result.data);
 
     }
 }
