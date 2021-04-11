@@ -73,26 +73,62 @@ public class trees {
             return search(e,current.left);
         }
     }
-    public static Node delete(int e, Node current){
-       Node m =  search( e, current);
-        if(m.left == null && m.right == null){
+    public static Node delete(int k, Node current) {
+        if (current == null) {
             return null;
         }
-        levelOrder(current);
+        if (k < current.data) {
+            current.left = delete( k, current.left);
+        }
+         else if (k > current.data) {
+            current.right = delete( k, current.right);
+        }
+         else {
+             if (isLeaf(current)) {
+                 return null;
+             } else if (hasOneChild(current)) {
+                   if (current.left == null) {
+                       return current.right;
+                   } else return current.left;
+             } else {
+                 Node pred = inorderPredecessor(current);
+                 int t = pred.data;
+                 pred.data = current.data;
+                 current.data = t;
+                 current.left = delete(k, current);
+             }
+        }
         return current;
+    }
+    public static boolean isLeaf(Node n) {
+        return (n.left == null && n.right == null);
+    }
+    public static boolean hasOneChild(Node n) {
+        return ((n.left == null || n.right == null) && !isLeaf(n));
 
     }
+    public static Node inorderPredecessor(Node n) {
+         Node current = n.left;
+         while(current.right != null){
+             current = current.right;
+         }
+         return current;
+    }
+
     public static void main(String[] args) {
-        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(3, 1, 5, 4));
+        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(6, 1, 4, 5, 3, 7, 0));
         Node root = newLeaf(a.get(0));
         for (int i = 1; i < a.size(); i++) {
             insertBST(root, a.get(i));
         }
-        // levelOrder(root);
+       // Node newRoot = delete(4, root);
+        delete(6, root);
+         levelOrder(root);
        // System.out.println();
         // recPrintTree(root);
-        Node result = delete(3,root);
+        //Node result = delete(3,root);
         //System.out.println(result.data);
+        //System.out.println(inorderPredecessor(root).data);
 
     }
 }
