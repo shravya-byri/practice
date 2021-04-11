@@ -92,10 +92,8 @@ public class trees {
                    } else return current.left;
              } else {
                  Node pred = inorderPredecessor(current);
-                 int t = pred.data;
-                 pred.data = current.data;
-                 current.data = t;
-                 current.left = delete(k, current);
+                 current.data = pred.data;
+                 current.left = delete(pred.data, current.left);
              }
         }
         return current;
@@ -122,7 +120,7 @@ public class trees {
             insertBST(root, a.get(i));
         }
        // Node newRoot = delete(4, root);
-        delete(6, root);
+        delete(4, root);
          levelOrder(root);
        // System.out.println();
         // recPrintTree(root);
