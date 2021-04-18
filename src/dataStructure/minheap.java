@@ -26,12 +26,14 @@ public class minheap {
         a.set(i, a.get(j));
         a.set(j, t);
     }
+
     public static int getMin(ArrayList<Integer> heap) {
         if (heap.isEmpty()) {
             System.out.println("Empty Heap");
             return -99;
         }
         int min = heap.get(0);
+
         heap.set(0, heap.get(heap.size()-1));
         heap.remove(heap.size()-1);
         int current = 0;
@@ -52,7 +54,13 @@ public class minheap {
         }
         return min;
     }
-    public static void deleteHeap(ArrayList<Integer> heap, int k) {
+    public static void heapSort(ArrayList<Integer> heap){
+
+        while(heap.size() != 0) {
+            System.out.println(getMin(heap));
+        }
+
+
 
     }
     public static void main(String[] args) {
@@ -62,7 +70,7 @@ public class minheap {
             insertHeap(h, a.get(i));
         }
         //insertHeap(h, 0);
-        getMin(h);
+        heapSort(h);
         for (int i=0; i<h.size();i++) {
             System.out.print(h.get(i) + " ");
         }
