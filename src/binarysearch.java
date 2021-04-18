@@ -20,8 +20,10 @@ public class binarysearch {
     }
 
     public static void main(String[] args) {
-            ArrayList<Integer> search = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
-          System.out.println(searchNumber(search,10));
+
+        ArrayList<Integer> search = new ArrayList<>(Arrays.asList(0,2,8,10,15,88,117,138,109,210));
+
+        System.out.println(searchNumber(search,210));
 
     }
 }
