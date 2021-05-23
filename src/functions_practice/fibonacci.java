@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class fibonacci {
     public static void main(String[] args) {
-        System.out.print(fibo1(5));
+        System.out.print(fibo1(6));
 
     }
 
