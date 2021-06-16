@@ -5,6 +5,8 @@ public class arraylist {
         cars.add(1);
         cars.add(4);
         cars.add(7);
+       
+        System.out.println(cars.size());
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i) * cars.get(i));
         }
